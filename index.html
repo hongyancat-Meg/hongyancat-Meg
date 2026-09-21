@@ -1,31 +1,496 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>鴻炎貓坊｜Hong Yan Maine Coon</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>鴻炎貓坊｜Hong Yan Maine Coon</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  color:#302d2a;
+  background:#faf9f7;
+  line-height:1.8;
+}
+
+/* 導覽列 */
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.95);
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+nav a{
+  color:#333;
+  text-decoration:none;
+  margin-left:25px;
+  font-size:14px;
+}
+
+/* 首頁 */
+.hero{
+  min-height:78vh;
+  background:
+    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.35)),
+    linear-gradient(135deg,#9b8c7d,#4d443d);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:40px 20px;
+}
+
+.hero h1{
+  font-size:52px;
+  letter-spacing:6px;
+  margin-bottom:5px;
+}
+
+.hero .english{
+  font-size:18px;
+  letter-spacing:5px;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:35px;
+}
+
+.button{
+  display:inline-block;
+  padding:12px 30px;
+  background:white;
+  color:#333;
+  text-decoration:none;
+  border-radius:30px;
+  margin:5px;
+  transition:.3s;
+}
+
+.button:hover{
+  transform:translateY(-3px);
+}
+
+/* 共用區塊 */
+section{
+  padding:90px 10%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:30px;
+  letter-spacing:3px;
+}
+
+.section-title p{
+  color:#888;
+  margin-top:8px;
+}
+
+/* 關於 */
+.about{
+  background:white;
+}
+
+.about-text{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+  font-size:17px;
+}
+
+/* 健康 */
+.health{
+  background:#f3f0ec;
+}
+
+.cards{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:35px 25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.card .icon{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+/* 毛孩 */
+.cats{
+  background:white;
+}
+
+.cat-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.cat-photo{
+  height:330px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ded7cf,#a99d91);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:18px;
+}
+
+/* 服務 */
+.services{
+  background:#f3f0ec;
+}
+
+.service-box{
+  max-width:850px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.service{
+  background:white;
+  border-radius:15px;
+  padding:40px;
+  text-align:center;
+}
+
+/* 聯絡 */
+.contact{
+  background:#3c3733;
+  color:white;
+  text-align:center;
+}
+
+.contact h2{
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.contact p{
+  color:#ddd;
+  margin-bottom:30px;
+}
+
+.social{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.social a{
+  background:white;
+  color:#333;
+  padding:12px 25px;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+/* 頁尾 */
+footer{
+  background:#292623;
+  color:#aaa;
+  text-align:center;
+  padding:25px;
+  font-size:13px;
+}
+
+/* 手機 */
+@media(max-width:750px){
+
+  nav{
+    padding:15px 5%;
+  }
+
+  nav .links{
+    display:none;
+  }
+
+  .hero{
+    min-height:70vh;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .hero .english{
+    font-size:13px;
+  }
+
+  section{
+    padding:65px 7%;
+  }
+
+  .cards,
+  .cat-grid,
+  .service-box{
+    grid-template-columns:1fr;
+  }
+
+  .cat-photo{
+    height:300px;
+  }
+}
+</style>
 </head>
 
+
 <body>
-  <h1>鴻炎貓坊 🐾</h1>
-  <h2>Hong Yan Maine Coon</h2>
 
-  <p>歡迎來到鴻炎貓坊官方網站</p>
+<!-- 導覽列 -->
+<nav>
 
-  <h2>關於鴻炎</h2>
+  <div class="logo">
+    鴻炎貓坊
+  </div>
+
+  <div class="links">
+    <a href="#about">關於鴻炎</a>
+    <a href="#health">健康把關</a>
+    <a href="#cats">毛孩日常</a>
+    <a href="#service">美容住宿</a>
+    <a href="#contact">聯絡資訊</a>
+  </div>
+
+</nav>
+
+
+<!-- 首頁 -->
+<header class="hero">
+
+  <div>
+
+    <h1>鴻炎貓坊</h1>
+
+    <div class="english">
+      HONG YAN MAINE COON
+    </div>
+
+    <p>
+      陪伴每一個小生命，健康長大。
+    </p>
+
+    <a href="#about" class="button">
+      認識鴻炎
+    </a>
+
+    <a href="#contact" class="button">
+      聯絡資訊
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- 關於 -->
+<section class="about" id="about">
+
+  <div class="section-title">
+    <h2>關於鴻炎</h2>
+    <p>ABOUT HONG YAN</p>
+  </div>
+
+  <div class="about-text">
+
+    <p>
+      鴻炎貓坊專注於緬因貓的健康、照護與社會化，
+      從日常照顧、健康管理到成長過程，
+      細心陪伴每一個小生命。
+    </p>
+
+    <br>
+
+    <p>
+      希望每一次相遇，
+      都不只是帶回一隻貓咪，
+      而是迎接一位未來陪伴生活的重要家人。
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- 健康 -->
+<section class="health" id="health">
+
+  <div class="section-title">
+    <h2>健康把關</h2>
+    <p>HEALTH & CARE</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">🧬</div>
+      <h3>遺傳健康篩檢</h3>
+      <p>
+        種貓進行 HCM、PKD、SMA<br>
+        實驗室遺傳篩檢並附相關報告。
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🩺</div>
+      <h3>基礎健康管理</h3>
+      <p>
+        三大病毒快篩、基礎健康檢查，
+        並提供完整疫苗施打紀錄。
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🤍</div>
+      <h3>安心保障</h3>
+      <p>
+        一年期寵物綜合保險，
+        並提供 180 天先天性遺傳缺陷保障。
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 毛孩照片 -->
+<section class="cats" id="cats">
+
+  <div class="section-title">
+    <h2>毛孩日常</h2>
+    <p>OUR MAINE COONS</p>
+  </div>
+
+  <div class="cat-grid">
+
+    <div class="cat-photo">
+      🐾 照片位置 01
+    </div>
+
+    <div class="cat-photo">
+      🐾 照片位置 02
+    </div>
+
+    <div class="cat-photo">
+      🐾 照片位置 03
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 美容住宿 -->
+<section class="services" id="service">
+
+  <div class="section-title">
+    <h2>美容・住宿</h2>
+    <p>GROOMING & BOARDING</p>
+  </div>
+
+  <div class="service-box">
+
+    <div class="service">
+      <h2>🛁</h2>
+      <h3>洗澡美容</h3>
+      <p>
+        從清潔、梳理到吹整，
+        用耐心完成每一次美容照護。
+      </p>
+    </div>
+
+    <div class="service">
+      <h2>🏠</h2>
+      <h3>安心住宿</h3>
+      <p>
+        提供熟悉且安心的照護環境，
+        讓住宿期間也能被好好陪伴。
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 聯絡 -->
+<section class="contact" id="contact">
+
+  <h2>與鴻炎相遇</h2>
+
   <p>
-    專注於緬因貓的健康、照護與社會化，
-    陪伴每一隻小生命健康成長。
+    更多緬因貓日常、相關資訊與諮詢，
+    歡迎透過官方社群與鴻炎聯繫。
   </p>
 
-  <h2>健康把關</h2>
-  <p>
-    HCM・PKD・SMA 遺傳篩檢<br>
-    三大病毒篩檢<br>
-    基礎健康檢查與疫苗紀錄
-  </p>
+  <div class="social">
 
-  <h2>聯絡鴻炎</h2>
-  <p>更多貓咪日常與相關資訊，歡迎追蹤社群平台。</p>
+    <a href="#">LINE</a>
+
+    <a href="#">Facebook</a>
+
+    <a href="#">Instagram</a>
+
+    <a href="#">Threads</a>
+
+  </div>
+
+</section>
+
+
+<footer>
+  © 2026 鴻炎貓坊 Hong Yan Maine Coon
+</footer>
+
 </body>
 </html>
